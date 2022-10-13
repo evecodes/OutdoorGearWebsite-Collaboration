@@ -12,3 +12,5 @@
  Update 01 - Base items for website added.
 
  Update 02 - Background image CSS, other CSS added.
+
+ Update 03 - Nav and home page base CSS added.
