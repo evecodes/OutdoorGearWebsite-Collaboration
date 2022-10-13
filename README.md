@@ -10,3 +10,5 @@
  -----------------
 
  Update 01 - Base items for website added.
+
+ Update 02 - Background image CSS, other CSS added.
