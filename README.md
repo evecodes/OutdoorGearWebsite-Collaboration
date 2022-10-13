@@ -4,7 +4,9 @@
  Website for a fictional outdoor gear shop.
 
  UX/UI design by Sannet Bodewes - sannetbodewes.nl
+ 
  Coded by me
 
- ---------------
+ -----------------
 
+ Update 01 - Base items for website added.
