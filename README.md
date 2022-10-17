@@ -14,3 +14,5 @@
  Update 02 - Background image CSS, other CSS added.
 
  Update 03 - Nav and home page base CSS added.
+
+ Update 04 - More nav and home CSS added, grid and flex.
