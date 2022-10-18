@@ -13,12 +13,11 @@
 <body class="">
     <nav class="position-absolute flex-horizontal flex-alignment width-100">
         <div class="outer-box">
-            <div class="flex-horizontal flex-alignment-spacebetween inner-box bg-color">
+            <div class="flex-horizontal flex-alignment-spacebetween padding-left-right bg-color">
                 <div class="flex-horizontal flex-alignment-start nav-flex-gap">
                     <img src="icon_img/logo-white.png" class="logo-small">
                     <div class="search-bar flex-horizontal flex-alignment">
-                        <img src="icon_img/icon-search-black.png">
-                        <input>
+                        <input type="search">
                     </div>
                 </div>                
                 <ul class="nav-bar flex-horizontal flex-alignment-end nav-flex-gap">
@@ -26,32 +25,32 @@
                     <li><a>Travel bags</a></li>
                     <li><a>Shoes</a></li>
                     <li><a>Support</a></li>
-                    <li class="flex-horizontal flex-alignment"><img src="icon_img/icon-user-white.png"><a>Account</a></li>
+                    <li class="position-relative"><a class="flex-horizontal flex-alignment icon-account"><img src="icon_img/icon-user-white.png" class="icon-account-properties">Account</a></li>
                     <li><div class="shop-block flex-horizontal flex-alignment icon-cart">
                         <img src="icon_img/icon-cart-white.png" class="">
                     </div></li>                    
                 </ul>            
-            </div>
-            
+            </div>            
         </div>            
     </nav>
     <main>
         <section class="outer-box white-bg">
             <div class="grid-homepage">
-                <div class="inner-box grid-title-home">
-                    <div>
-                        <h1>Get in gear <br> Adventure in comfort</h1>
-                    </div>
-                    <button>Shop now</button>
+                <div class="grid-title-home padding-left">
+                    <div class="title-main">
+                        <h1>Get in <span class="box-black">gear</span></h1>
+                        <h2>Adventure in comfort</h2>
+                        <button class="button-shop">Shop now</button>
+                    </div>                    
                 </div>
                 <div class="grid-overlay-dark"></div>
-                <div class="home-img grid-image-home">
-                    <img src="icon_img/kelly-repreza-CI4aWR9bY8c-unsplash.jpg" class="home-img-properties">
+                <div class="home-img grid-image-home position-relative">
+                    <img src="icon_img/kelly-repreza-CI4aWR9bY8c-unsplash-half-height.jpg" class="home-img-properties position-absolute-home-img">
                 </div>
             </div>
         </section>
         <section class="outer-box white-bg">
-            <div class="inner-box">
+            <div class="padding-left-right">
                 <div><h2>Discover our products</h2></div>
                 <div class="product-box">
                     <ul class="flex-horizontal">
@@ -64,7 +63,7 @@
             </div>
         </section>
         <section class="outer-box white-bg">
-            <div class="inner-box">
+            <div class="padding-left-right">
                 <div>
                     <h3>Get on the road <br>Travel in comfort</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, impedit et eum cumque, saepe tenetur maiores doloribus repellat nihil aut possimus lunt.</p>
@@ -78,6 +77,6 @@
             <img src="icon_img/kelly-repreza-CI4aWR9bY8c-unsplash.jpg" class="bg-image">
         </div>
     </main>
-    <footer></footer>    
+    <footer class="outer-box"></footer>    
 </body>
 </html>
