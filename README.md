@@ -18,3 +18,5 @@
  Update 04 - More nav and home CSS added, grid and flex.
 
  Update 05 - More CSS work done on nav and home page.
+
+ Update 06 - Product page and story page CSS setup. Product carousel base made.
