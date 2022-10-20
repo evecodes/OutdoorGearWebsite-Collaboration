@@ -20,3 +20,5 @@
  Update 05 - More CSS work done on nav and home page.
 
  Update 06 - Product page and story page CSS setup. Product carousel base made.
+
+ Update 07 - Product and story page more CSS work done. Carousel details added, plus miscellaneous changes.

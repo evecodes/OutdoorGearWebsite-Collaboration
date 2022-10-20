@@ -394,10 +394,78 @@ input[type=search]:focus {
 
 .grid-product {
     display: grid;
-    grid-template-rows: 1fr 2rem 2rem;
-    justify-content: center;
-    /* border: 3px solid red; */
+    grid-template-rows: 1fr 2.5rem 2rem;
+    justify-items: center;
+    cursor: pointer;
+    /* justify-content: center; */
     /* margin-right: 1rem; */
+    /* border: 3px solid red; */
+}
+
+.grid-product:hover {
+    transform: scale(1.05);
+}
+
+/* .grid-product > img {
+    /* place-self: center; */
+    /*above property works
+} */
+
+.product-name, .highlight-price {
+    font-family: var(--main-font);
+    font-style: normal;
+    font-weight: 700;
+    text-align: left;
+}
+
+.product-name {
+    font-size: 1.3rem;
+    color: var(--main-color);
+}
+
+.highlight-price {
+    padding-top: 0.5rem;
+    font-size: 1rem;
+    color: var(--key-color);
+}
+
+.carousel-arrow-left, .carousel-arrow-right {
+    height: 0.7rem;
+    width: 0.7rem;
+    border-right: 2px solid var(--main-color);
+    border-bottom: 2px solid var(--main-color);
+    cursor: pointer;
+}
+
+.carousel-arrow-left {
+    top: 50%;
+    transform: translateX(-0.3rem) rotate(-225deg);
+}
+
+.carousel-arrow-left:hover {
+    transform: translateX(-0.3rem) rotate(-225deg) scale(1.4);
+}
+
+.carousel-arrow-right {
+    top: 50%;
+    right: 0;
+    transform: translateX(0.2rem) rotate(-45deg);
+}
+
+.carousel-arrow-right:hover {
+    transform: translateX(0.2rem) rotate(-45deg) scale(1.4);
+}
+
+.button-box {
+    gap: 0.6rem;
+    margin-top: 3rem;
+}
+
+.button-dot {
+    background-color: var(--main-color);
+    height: 0.5rem;
+    width: 0.5rem;
+    border-radius: 100%;
 }
 
 
@@ -405,7 +473,7 @@ input[type=search]:focus {
 .story-block {
     display: grid;
     grid-template-columns: 40% 60%;
-    height: 35rem;
+    height: 40rem;
     align-items: center;    
     padding-top: 4rem;
 }
