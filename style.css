@@ -1,5 +1,5 @@
 :root {
-    --key-color: hsl(183, 60%, 44%);
+    --key-color: rgb(45, 173, 180);
     --main-color: hsl(0, 0%, 0%);
     --secondary-color: hsl(0, 0%, 100%);
     --secondary-color-80percent: hsla(0, 0%, 100%, 0.8);
@@ -10,6 +10,20 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font: inherit;
+}
+
+html {
+    scroll-behavior: smooth;    
+}
+
+body {
+    min-height: 100vh;
+}
+
+img, svg, picture, video {
+    display: block;
+    max-width: 100%;
 }
 
 a {
@@ -180,6 +194,8 @@ nav {
     align-items: center;
     justify-content: end;
 }
+
+/*input label here */
 
 input[type=search] {
     width: clamp(10rem, 20vw, 30rem);
@@ -472,15 +488,16 @@ input[type=search]:focus {
 /*Story*/
 .story-block {
     display: grid;
-    grid-template-columns: 40% 60%;
-    height: 40rem;
+    grid-template-columns: 40% 1fr;
+    /* height: 40rem; */
     align-items: center;    
-    padding-top: 4rem;
+    padding-top: 4rem;    
 }
 
 .story-text {
     display: inline-block;
     padding-right: 3rem;
+    padding-bottom: 3rem;
 }
 
 .story-text > h3, .story-text > h4 {
@@ -498,6 +515,17 @@ input[type=search]:focus {
     font-family: var(--main-font);
     font-style: normal;
     font-weight: 500;
+}
+
+.story-shapes-img {
+    position: absolute;
+    mix-blend-mode: overlay;
+    /* object-position: bottom; */
+    /* width: 100%;
+    height: 100%; */
+    object-fit: cover;
+    opacity: 0.9;
+    bottom: 0;
 }
 
 .story-img {
