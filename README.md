@@ -24,3 +24,5 @@
  Update 07 - Product and story page more CSS work done. Carousel details added, plus miscellaneous changes.
 
  Update 08 - More product tiles, placeholder img added, story overlay shapes img added.
+
+ Update 09 - More product images, and CSS adjustments.
