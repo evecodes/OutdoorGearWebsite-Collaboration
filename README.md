@@ -26,3 +26,5 @@
  Update 08 - More product tiles, placeholder img added, story overlay shapes img added.
 
  Update 09 - More product images, and CSS adjustments.
+
+ Update 10 - Font clamp sizes, product grid adjustments.

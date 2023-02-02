@@ -10,6 +10,7 @@
     --font-size-main: 1rem;
     --font-size-main-medium: 1.2rem;
     --font-size-main-large: clamp(1rem, 3vw, 1.3rem);  
+    --font-size-product: clamp(1rem, 4vw, 1.3rem);
     /*clamp font sizes here*/
 }
 
@@ -340,9 +341,13 @@ input[type=search]:focus {
 
 .grid-product {
     display: grid;
-    grid-template-rows: 1fr 2.5rem 2rem;
+    grid-template-rows: 1fr min-content min-content;
+    /*was 2.5rem and 2rem, max-content note*/
+    
     justify-items: center;
     cursor: pointer;
+    padding: 0.5rem;    
+    /* white-space: nowrap; */
     /* justify-content: center; */
     /* margin-right: 1rem; */
     /* border: 3px solid red; */
@@ -366,12 +371,14 @@ input[type=search]:focus {
     font-family: var(--main-font);
     font-style: normal;
     font-weight: 700;
-    text-align: left;
+    /* text-align: left; */
+    text-align: center;
 }
 
 .product-name {
-    font-size: var(--font-size-main-large);
+    font-size: var(--font-size-product);
     color: var(--main-color);
+    /* text-align: center; */
 }
 
 .highlight-price {
@@ -503,6 +510,23 @@ footer {
         height: 0rem;
     }
 }
+
+@media screen and (max-width: 70em){
+    .grid-product-carousel {        
+        grid-auto-columns: 33.33%;
+    }
+}
+
+@media screen and (max-width: 46em){
+    .grid-product-carousel {        
+        grid-auto-columns: 50%;
+    }
+}
+
+/*Mobile narrow*/
+@media screen and (max-width: 27em){   
+}
+
 
 /*1300 = still okay, no break*/
 /*icon shop shrinks down when resizing*/
