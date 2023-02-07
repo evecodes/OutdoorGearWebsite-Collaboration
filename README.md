@@ -28,3 +28,5 @@
  Update 09 - More product images, and CSS adjustments.
 
  Update 10 - Font clamp sizes, product grid adjustments.
+
+ Update 11 - Base mobile version made.
