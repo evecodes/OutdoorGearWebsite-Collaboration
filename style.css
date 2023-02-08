@@ -5,7 +5,7 @@
     --secondary-color-80percent: hsla(0, 0%, 100%, 0.8);
     --main-font: 'Montserrat', sans-serif;
     --font-size-title: clamp(2rem, 6vw, 3rem);
-    --font-size-title-secondary: clamp(1.4rem, 5vw, 2.6rem);
+    --font-size-title-secondary: clamp(1.4rem, 6vw, 2.6rem);
     --font-size-title-product: 1.5rem;
     --font-size-main: 1rem;
     --font-size-main-medium: 1.2rem;
@@ -245,7 +245,7 @@ input[type=search]:focus {
 
 .grid-title-home {
     /* align-self: center; */
-    margin: 0;
+    /* margin: 0; */
     grid-area: 2 / 1 / span 1 / span 3;
     z-index: 10;
 }
@@ -561,6 +561,22 @@ footer {
 /*Mobile narrow*/
 @media screen and (max-width: 27em){
     /*Home*/
+    .grid-title-home {
+        justify-items: center;        
+    }
+
+    .title-main {
+        max-width: 85%;
+        margin: 5rem auto 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* .title-main-second-line {        
+    } = not in use*/
+
     .padding-left {
         padding-left: 0;
     }
@@ -572,7 +588,10 @@ footer {
     
     /*Story*/
     .story-text {
-        padding: 0 1.5rem 3rem 1.5rem;
+        margin: 0 auto 3rem auto;
+        max-width: 80%;
+        padding: 0;
+        /* padding: 0 1.5rem 3rem 1.5rem; */
     }   
     
     .story-text-paragraph {

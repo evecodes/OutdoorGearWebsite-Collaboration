@@ -30,3 +30,5 @@
  Update 10 - Font clamp sizes, product grid adjustments.
 
  Update 11 - Base mobile version made.
+
+ Update 12 - More mobile CSS added.
