@@ -32,3 +32,5 @@
  Update 11 - Base mobile version made.
 
  Update 12 - More mobile CSS added.
+
+ Update 13 - Mobile icons added, more mobile CSS added.

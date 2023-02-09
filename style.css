@@ -1,5 +1,6 @@
 :root {
-    --key-color: rgb(45, 173, 180);
+    --key-color: hsl(183, 60%, 44%);
+    --key-color-80percent: hsla(183, 60%, 44%, 0.8);
     --main-color: hsl(0, 0%, 0%);
     --secondary-color: hsl(0, 0%, 100%);
     --secondary-color-80percent: hsla(0, 0%, 100%, 0.8);
@@ -11,7 +12,7 @@
     --font-size-main-medium: 1.2rem;
     --font-size-main-large: clamp(1rem, 3vw, 1.3rem);  
     --font-size-product: clamp(1rem, 4vw, 1.3rem);
-    /*clamp font sizes here*/
+    /*var text style and weight here*/
 }
 
 * {
@@ -170,6 +171,15 @@ nav {
 .flex-alignment-end {
     align-items: center;
     justify-content: end;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+.mobile-menu-text {    
+    color: var(--secondary-color);
+    padding-right: 0.75rem;
 }
 
 /*input label here, also fix font + the x in search bar*/
@@ -519,7 +529,17 @@ footer {
 
 @media screen and (max-width: 72em){
     /*Nav*/
+    .mobile-menu {
+        display: flex;
+        cursor: pointer;
+    }    
+
     .nav-bar {
+        position: absolute;
+        padding-top: 1rem;
+        flex-direction: column;
+        text-align: right;
+        background-color: var(--key-color-80percent);
         display: none;
     }
 
@@ -560,6 +580,27 @@ footer {
 
 /*Mobile narrow*/
 @media screen and (max-width: 27em){
+    /*Nav*/
+    input[type=search] {
+        width: clamp(10rem, 4vw, 15rem);        
+    }
+    
+    .mobile-menu-text {
+        display: none;
+    }
+
+    /* .nav-bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding-top: 1rem;
+        flex-direction: column;
+        text-align: right;
+        background-color: var(--key-color-80percent);
+        display: flex;
+    }
+     */
+
     /*Home*/
     .grid-title-home {
         justify-items: center;        
@@ -573,9 +614,6 @@ footer {
         align-items: center;
         text-align: center;
     }
-
-    /* .title-main-second-line {        
-    } = not in use*/
 
     .padding-left {
         padding-left: 0;
@@ -602,3 +640,4 @@ footer {
 
 /*1300 = still okay, no break*/
 /*icon shop shrinks down when resizing*/
+/*icon account and shop seperate divs*/
