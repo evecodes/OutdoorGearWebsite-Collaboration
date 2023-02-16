@@ -14,41 +14,53 @@
     <nav class="position-absolute flex-horizontal flex-alignment width-100">
         <div class="outer-box">
             <div class="flex-horizontal flex-alignment-spacebetween padding-left-right bg-color">
-                <div class="flex-horizontal flex-alignment-start nav-flex-gap">
-                    <img src="icon_img/logo-white.png" class="logo-small">
+                <div class="flex-horizontal flex-alignment-center flex-wrap flex-grow nav-flex-gap">
+
+                    <div class="mobile-menu flex-horizontal flex-alignment">
+                        <p class="mobile-menu-text mobile-hide"><span>Menu</span></p>
+                        <img src="icon_img/menu-white.svg" class="logo-small">
+                    </div>
+
+                    <div>
+                        <img src="icon_img/logo-white.png" class="logo-small">
+                    </div>                    
+
                     <div class="search-bar flex-horizontal flex-alignment">
                         <input type="search">
                     </div>
-                </div>
-                <div class="position-relative">
-                    <div class="mobile-menu flex-horizontal flex-alignment">
-                        <p class="mobile-menu-text">Menu</p>
-                        <img src="icon_img/menu-white.svg" class="logo-small">
+
+                    <div class="nav-items-box">
+                        <ul class="nav-bar nav-bar-links flex-horizontal nav-flex-gap">
+                            <li>
+                                <a>Climbing</a>
+                            </li>
+                            <li>
+                                <a>Travel bags</a>
+                            </li>
+                            <li>
+                                <a>Shoes</a>
+                            </li>
+                            <li>
+                                <a>Support</a>
+                            </li>                                          
+                        </ul>                        
                     </div>
-                    <ul class="nav-bar flex-horizontal flex-alignment-end nav-flex-gap">
-                        <li>
-                            <a>Climbing</a>
-                        </li>
-                        <li>
-                            <a>Travel bags</a>
-                        </li>
-                        <li>
-                            <a>Shoes</a>
-                        </li>
-                        <li>
-                            <a>Support</a>
-                        </li>
-                        <li class="position-relative">
+
+                    <div class="icon-box nav-flex-gap-icons">
+                        <div class="position-relative">
                             <a class="flex-horizontal flex-alignment icon-account">
-                                <img src="icon_img/icon-user-white.png" class="icon-account-properties">Account</a>
-                        </li>
-                        <li>
+                                <img src="icon_img/icon-user-white.png" class="icon-account-properties">
+                                <span class="mobile-hide">Account</span>
+                            </a>
+                        </div>
+                        <div>
                             <div class="shop-block flex-horizontal flex-alignment icon-cart">
                                 <img src="icon_img/icon-cart-white.png" class="">
                             </div>
-                        </li>                    
-                    </ul>                     
-                </div>
+                        </div>                        
+                    </div>
+
+                </div>           
             </div>            
         </div>            
     </nav>

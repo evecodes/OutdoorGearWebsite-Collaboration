@@ -13,6 +13,7 @@
     --font-size-main-large: clamp(1rem, 3vw, 1.3rem);  
     --font-size-product: clamp(1rem, 4vw, 1.3rem);
     /*var text style and weight here*/
+    /*bg-color class usable see html nav*/
 }
 
 * {
@@ -20,6 +21,9 @@
     padding: 0;
     box-sizing: border-box;
     font: inherit;
+    /* background: #000 !important;
+    color: #0f0 !important;
+    outline: solid #f00 1px !important; */
 }
 
 html {
@@ -30,10 +34,11 @@ body {
     min-height: 100vh;
 }
 
-img, svg, picture, video {
+/* img, svg, picture, video {
     display: block;
     max-width: 100%;
-}
+} */  
+/*not on the icon images*/
 
 a {
     font-size: var(--font-size-main);
@@ -122,6 +127,33 @@ P {
     justify-content: center;
 }
 
+.flex-alignment-spacebetween {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex-alignment-start {
+    align-items: center;
+    justify-content: start;
+}
+
+.flex-alignment-center {
+    align-items: center;    
+}
+
+.flex-alignment-end {
+    align-items: center;
+    justify-content: end;
+}
+
+.flex-wrap {
+    flex-wrap: nowrap;
+}
+
+.flex-grow {
+    flex-grow: 1;
+}
+
 .position-absolute {
     position: absolute;
     top: 0;
@@ -135,43 +167,28 @@ P {
     z-index: 50;
 }
 
-.overflow-hidden {
-    overflow: hidden;
-}
-
-
 /*Nav*/
 nav {
-    height: 6rem;
+    min-height: 6rem;
     z-index: 999;
+    margin-top: 1rem;
 }
 
 .nav-bar {
     list-style: none;
 }
 
+.mobile-hide-searchbar-below {
+    display: none;
+}
+
 .width-100 {
     width: 100%;
 }
 
-.nav-flex-gap {
+.nav-flex-gap, .nav-flex-gap-icons {
     gap: clamp(1rem, 4vw, 2.5rem);
-}
-
-.flex-alignment-spacebetween {
-    align-items: center;
-    justify-content: space-between;
-}
-
-.flex-alignment-start {
-    align-items: center;
-    justify-content: start;
-}
-
-.flex-alignment-end {
-    align-items: center;
-    justify-content: end;
-}
+} /*to be moved to other class or removed*/
 
 .mobile-menu {
     display: none;
@@ -184,8 +201,7 @@ nav {
 
 /*input label here, also fix font + the x in search bar*/
 
-input[type=search] {
-    width: clamp(10rem, 20vw, 30rem);
+input[type=search] {    
     background-color: var(--secondary-color-80percent);
     background-image: url(icon_img/icon-search-black.png);
     background-position: 0.7rem center;
@@ -193,6 +209,7 @@ input[type=search] {
     padding: 0.7rem 0.7rem 0.7rem 2.5rem;
     border: transparent;
     outline: none;
+    width: 100%;
 }
 
 input[type=search]:focus {
@@ -200,6 +217,25 @@ input[type=search]:focus {
     box-shadow: none;
     border: transparent;
     outline: none;
+}
+
+.search-bar {
+    display: flex;
+    order: 0;
+    flex-grow: 0;
+    flex-wrap: nowrap;
+    min-width: 30%;
+}
+
+.nav-items-box {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.icon-box {
+    display: flex;
+    align-items: center;
 }
 
 .icon-account:hover {
@@ -224,13 +260,9 @@ input[type=search]:focus {
     position: absolute;
     display: inline-block;
     top: -0.5rem;
-    left: 1rem;
-    /* height: 1rem;
-    width: 1rem; */
+    left: 1rem;    
     border-left: 5px solid var(--key-color);
-    border-right: 5px solid var(--key-color);
-    /* border-top: 5px solid var(--key-color);
-    border-bottom: 5px solid var(--key-color); */
+    border-right: 5px solid var(--key-color);    
     border-radius: 30rem;
     background-color: var(--key-color);
     color: var(--secondary-color);
@@ -246,16 +278,10 @@ input[type=search]:focus {
     /* height: 100dvh; */
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
-    /* grid-template-areas:
-        "image-section-top" "image-section-top" "image-section-top"
-        "title" "title" "image-section-middle"
-        "image-section-bottom" "image-section-bottom" "image-section-bottom" ; */
+    grid-template-columns: 1fr 1fr 1fr;    
 }
 
 .grid-title-home {
-    /* align-self: center; */
-    /* margin: 0; */
     grid-area: 2 / 1 / span 1 / span 3;
     z-index: 10;
 }
@@ -338,10 +364,7 @@ input[type=search]:focus {
 }
 
 .product-box {
-    /* width: 100%; */
-    overflow: hidden;
-    /* background-color: rgba(128, 128, 128, 0.185);  */
-    /*BG clr TBR*/
+    overflow: hidden;    
 }
 
 .grid-product-carousel {
@@ -354,7 +377,6 @@ input[type=search]:focus {
     display: grid;
     grid-template-rows: 1fr min-content min-content;
     /*was 2.5rem and 2rem, max-content note*/
-    
     justify-items: center;
     cursor: pointer;
     padding: 0.5rem;    
@@ -363,7 +385,6 @@ input[type=search]:focus {
     /* margin-right: 1rem; */
     /* border: 3px solid red; */
 }
-/*Flex try?*/
 
 .grid-product:hover {
     transform: scale(1.05);
@@ -381,15 +402,13 @@ input[type=search]:focus {
 .product-name, .highlight-price {
     font-family: var(--main-font);
     font-style: normal;
-    font-weight: 700;
-    /* text-align: left; */
+    font-weight: 700;    
     text-align: center;
 }
 
 .product-name {
     font-size: var(--font-size-product);
     color: var(--main-color);
-    /* text-align: center; */
 }
 
 .highlight-price {
@@ -508,8 +527,7 @@ input[type=search]:focus {
 /*Footer*/
 
 footer {
-    height: 3rem;
-    /* background-color: var(--secondary-color); */
+    height: 3rem;    
 }
 
 
@@ -527,19 +545,36 @@ footer {
     }
 }
 
-@media screen and (max-width: 72em){
+@media screen and (max-width: 78.5em){
     /*Nav*/
+    .icon-box {
+        margin-left: auto;
+    }
+
     .mobile-menu {
         display: flex;
-        cursor: pointer;
-    }    
+        cursor: pointer;        
+    }
 
-    .nav-bar {
+    .nav-items-box {
         position: absolute;
+        /* top: 0;
+        left: 0;
+        bottom: 0; */
+        inset: 0 70% 0 0;
         padding-top: 1rem;
         flex-direction: column;
         text-align: right;
+        min-height: 100%;
         background-color: var(--key-color-80percent);
+        display: none;
+    } /*moved or merged with other classes*/
+
+    .nav-flex-gap-icons {
+        gap: 0.75rem;
+    } /*moved or merged with other classes*/
+
+    .mobile-hide, .mobile-hide-searchbar-below {
         display: none;
     }
 
@@ -581,25 +616,32 @@ footer {
 /*Mobile narrow*/
 @media screen and (max-width: 27em){
     /*Nav*/
-    input[type=search] {
-        width: clamp(10rem, 4vw, 15rem);        
+    nav {
+        margin-top: 1rem;
+        min-height: 7rem;
+    }
+
+    .flex-wrap {
+        flex-wrap: wrap;
+    }
+
+    .search-bar {
+        order: 1;
+        flex-grow: 1;
+        width: 100%;
     }
     
     .mobile-menu-text {
         display: none;
     }
 
-    /* .nav-bar {
-        position: absolute;
-        top: 0;
-        left: 0;
-        padding-top: 1rem;
-        flex-direction: column;
-        text-align: right;
-        background-color: var(--key-color-80percent);
+    .mobile-hide-searchbar {
+        display: none;
+    }
+
+    .mobile-hide-searchbar-below {
         display: flex;
     }
-     */
 
     /*Home*/
     .grid-title-home {

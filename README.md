@@ -34,3 +34,5 @@
  Update 12 - More mobile CSS added.
 
  Update 13 - Mobile icons added, more mobile CSS added.
+
+ Update 14 - Responsive mobile navbar CSS base made.
