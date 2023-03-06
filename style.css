@@ -40,7 +40,7 @@ body {
 } */  
 /*not on the icon images*/
 
-a {
+a, .account-tag {
     font-size: var(--font-size-main);
     color: var(--secondary-color);
     font-family: var(--main-font);
@@ -48,12 +48,13 @@ a {
     font-weight: 600;
     cursor: pointer;
     white-space: nowrap;
+    text-decoration: none;
 }
 
 a:hover {
     padding-bottom: 0.2rem;
     border-bottom: 0.2rem solid var(--secondary-color);
-}
+} /*change to only menu link items*/
 
 P {
     font-size: var(--font-size-main);
@@ -240,7 +241,7 @@ input[type=search]:focus {
 
 .icon-account:hover {
     margin-top: 8px;
-}
+} /*TBR or adjusted underline, because of button state*/
 
 .icon-account-properties {
     display: block;
@@ -252,7 +253,7 @@ input[type=search]:focus {
 
 .icon-cart {
     position: relative;
-}
+} /*fix height/margin jump up*/
 
 .icon-cart:after {
     content: "2";
@@ -306,7 +307,13 @@ input[type=search]:focus {
     padding: 0.5rem 0.5rem 0.5rem 1.3rem;
 }
 
-.button-shop {
+.btn-interactive-element {
+    border: transparent;
+    background-color: transparent;
+}
+
+
+.button-action-shop {
     font-size: var(--font-size-main-medium);
     color: var(--secondary-color);
     font-family: var(--main-font);
@@ -319,7 +326,7 @@ input[type=search]:focus {
     cursor: pointer;
 }
 
-.button-shop:hover {
+.button-action-shop:hover {
     color: var(--main-color);
     background-color: var(--secondary-color);
 }
