@@ -28,14 +28,13 @@
                     </div>                    
 
                     <div class="search-bar flex-horizontal flex-alignment">
-                        <form>
-                            <label for="search-bar"></label>
+                        <form>                            
                             <input type="search" name="search-bar" id="search-bar" aria-label="search">
                         </form>                        
                     </div>
 
                     <div class="nav-items-box">
-                        <ul class="nav-bar nav-bar-links flex-horizontal nav-flex-gap">
+                        <ul class="nav-bar nav-bar-links flex-menu nav-flex-gap">
                             <li>
                                 <a href="index.html">Climbing</a>
                             </li>
@@ -52,19 +51,13 @@
                     </div>
 
                     <div class="icon-box nav-flex-gap-icons">
-                        <div class="position-relative">
-                            <button class="flex-horizontal flex-alignment btn-interactive-element">
-                                <img src="icon_img/icon-user-white.png" alt="User icon" class="icon-account-properties">
-                                <span class="mobile-hide account-tag">Account</span>
-                            </button>                           
-                        </div>
-                        <div>
-                            <div class="shop-block flex-horizontal flex-alignment">
-                                <button class="btn-interactive-element icon-cart">
-                                    <img src="icon_img/icon-cart-white.png" alt="Shop icon" class="">
-                                </button>                                
-                            </div>
-                        </div>                        
+                        <button class="flex-horizontal flex-alignment btn-interactive-element">
+                            <img src="icon_img/icon-user-white.png" alt="User icon" class="icon-account-properties">
+                            <span class="mobile-hide account-tag">Account</span>
+                        </button>              
+                        <button class="btn-interactive-element flex-horizontal number-icon-cart">
+                            <img src="icon_img/icon-cart-white.png" alt="Shop icon" class="">
+                        </button>                                           
                     </div>
 
                 </div>           
@@ -95,8 +88,8 @@
                 </div>
                 
                 <div class="product-outer-box position-relative">
-                    <button class="carousel-arrow-left position-absolute btn-interactive-element"></button>
-                    <button class="carousel-arrow-right position-absolute btn-interactive-element"></button>
+                    <button class="carousel-arrow-left position-absolute btn-interactive-element" aria-label="slider-button"></button>
+                    <button class="carousel-arrow-right position-absolute btn-interactive-element" aria-label="slider-button"></button>
                     <div class="product-box">
                         <ul class="grid-product-carousel">
 
