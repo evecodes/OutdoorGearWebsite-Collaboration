@@ -34,11 +34,9 @@ body {
     min-height: 100vh;
 }
 
-/* img, svg, picture, video {
+img, svg, picture, video {
     display: block;
-    max-width: 100%;
-} */  
-/*not on the icon images*/
+}
 
 a, .account-tag {
     font-size: var(--font-size-main);
@@ -201,6 +199,10 @@ nav {
 }
 
 /*input label here, also fix font + the x in search bar*/
+
+form {
+    min-width: 100%;
+}
 
 input[type=search] {    
     background-color: var(--secondary-color-80percent);
@@ -405,7 +407,10 @@ input[type=search]:focus {
 }
 
 .grid-product > img {
-    max-height: 200px;
+    max-height: 12.5rem;
+    /* max-height: clamp(7rem, 3vw, 12.5rem); */
+    display: block;
+    max-width: 100%;
 }
 
 /* .grid-product > img {
@@ -690,6 +695,14 @@ footer {
     /* .grid-product {
         grid-template-rows: 1fr min-content min-content;
     } */
+
+    .title-product {
+        margin-bottom: 1.5rem;
+    }
+
+    .grid-product > img {
+        max-height: 7rem;        
+    }
     
     /*Story*/
     .story-text {
