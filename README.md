@@ -38,3 +38,5 @@
  Update 14 - Responsive mobile navbar CSS base made.
 
  Update 15 - Added accessibility parts.
+
+ Update 16 - More font variables added, selection color css, hover css parts.
