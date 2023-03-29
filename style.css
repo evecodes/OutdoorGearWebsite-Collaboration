@@ -7,7 +7,7 @@
     --tertiary-color-80percent: hsla(187, 100%, 20%, 0.75);
     --main-font: 'Montserrat', sans-serif;
     --font-size-title: clamp(2rem, 6vw, 3rem);
-    --font-size-title-secondary: clamp(1.4rem, 6vw, 2.6rem);
+    --font-size-title-secondary: clamp(1.4rem, 6vw, 2.6rem); /*changes*/
     --font-size-title-product: 1.5rem;    
     --font-size-main: 1rem;    
     --font-size-main-medium: 1.2rem;
@@ -19,7 +19,9 @@
     --font-weight-600: 600;
     --font-weight-700: 700;
     --font-weight-800: 800;
-    /*bg-color class usable see html nav*/  
+    --nav-height: 6rem;
+    --backdrop-filter-blur: 0.75rem;
+    /*bg-color class usable/unusable see html nav or TBR*/  
 }
 
 * {
@@ -62,12 +64,19 @@ P {
     font-weight: var(--font-weight-700);
 }
 
-.outer-box {
+/* .outer-box-nav {
+    width: min(85%, 120rem);
+} */
+
+.outer-box, .outer-box-nav {
     width: min(85%, 120rem);
     margin: auto;
-    /* overflow: hidden; */
-    /*SWITCH OVERFLOW BACK ON*/
 }
+
+.outer-box {
+    overflow: hidden;
+}
+/*overflow ON/hidden for product box items*/
 
 .padding-left {
     padding-left: 9%;
@@ -162,16 +171,42 @@ P {
     position: relative;
 }
 
+.position-fixed {
+    position: fixed;
+    inset: 0 0 auto 0;
+}
+
 .z-index-top {
     z-index: 50;
 }
 
 /*Nav*/
 nav {
-    min-height: 6rem;
+    /* height: 6rem; */
+    min-height: var(--nav-height);
     z-index: 999;
-    padding-top: 1rem;
+    /* background-color: hsla(207, 100%, 50%, 0.459);         */
+    /* padding-top: 1rem; */
+    
+    /* ^^^for intersection observer, white bg add over title*/
 }
+
+.nav-background-blur {    
+    position: fixed; 
+    top: 0;   
+    min-height: var(--nav-height);
+    min-width: 100%;    
+    /* background-color: rgba(0, 140, 255, 0.637); */
+    z-index: 500; 
+    display: none;
+    /* ^^^ for intersection observer */
+}
+
+@supports (backdrop-filter: blur(0)) {
+    .nav-background-blur {
+        backdrop-filter: blur(var(--backdrop-filter-blur));
+    }
+} 
 
 .nav-bar {
     list-style: none;
@@ -194,7 +229,7 @@ nav {
 
 .width-100 {
     width: 100%;
-}
+} /*TBR*/
 
 .nav-flex-gap, .nav-flex-gap-icons {
     gap: clamp(1rem, 4vw, 2.5rem);
@@ -209,7 +244,7 @@ nav {
     padding-right: 0.75rem;
 }
 
-/*input label here, also fix font + the x in search bar*/
+/*input label add (?) */
 
 form {
     min-width: 100%;
@@ -523,6 +558,7 @@ input[type="search" i]::-webkit-search-cancel-button {
     font-style: var(--font-style-normal);
     font-weight: var(--font-weight-800);
     margin-bottom: 1rem;
+    /* white-space: nowrap; TBR*/
 }
 
 .story-text-paragraph {
@@ -574,7 +610,7 @@ footer {
 /*--Media Queries--*/
 
 @media screen and (max-width: 90em){
-    .outer-box {
+    .outer-box, .outer-box-nav {
         width: 100%;
         margin: 0;        
     }
@@ -600,25 +636,25 @@ footer {
     }
 
     .nav-items-box {
-        position: absolute;
+        position: fixed;        
         top: 0;
         left: 0;
-        /* margin: 2rem; */
-        padding: 2rem;
-        /* top: 0;
-        left: 0;
-        bottom: 0; */
+        /* right: 70%; */
         /* inset: 0 70% 0 0; */
-        /* inset: 0 0 0 0; */
-        /* padding-top: 1rem; */
-        flex-direction: column;
-        /* text-align: right; */
-        min-height: 100%;
-        /* width: 30%; */
-        background-color: var(--key-color-80percent);
-        display: none;
+        bottom: 0;        
+        padding: 3rem;
+        flex-direction: column;        
+        background-color: hsla(0, 0%, 0%, 0.9);        
+        display: flex;
         z-index: 1500;
-    } /*moved or merged with other classes, nav flex gap check*/
+    } /*nav flex gap check with smaller sizing changes*/
+
+    
+    @supports (backdrop-filter: blur(0)) {
+        .nav-items-box {
+            backdrop-filter: blur(var(--backdrop-filter-blur));
+        }
+    } 
 
     .hover-enlarge:hover {
         transform: scale(1.15);
@@ -720,6 +756,11 @@ footer {
         grid-template-rows: 1fr min-content min-content;
     } */
 
+    .product-box {
+        overflow: hidden; 
+    } 
+    /* on/off switch test*/
+
     .title-product {
         margin-bottom: 1.5rem;
     }
@@ -740,8 +781,3 @@ footer {
         padding-top: 1rem;
     }
 }
-
-
-/*1300 = still okay, no break*/
-/*icon shop shrinks down when resizing*/
-/*icon account and shop seperate divs*/
