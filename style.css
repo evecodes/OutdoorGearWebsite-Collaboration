@@ -21,6 +21,8 @@
     --font-weight-800: 800;
     --nav-height: 6rem;
     --backdrop-filter-blur: 0.75rem;
+    --nav-gap-vw: clamp(1rem, 4vw, 2.5rem);
+    --nav-gap-vh: clamp(1rem, 4vh, 2.5rem);
     /*bg-color class usable/unusable see html nav or TBR*/  
 }
 
@@ -63,10 +65,6 @@ P {
     font-style: var(--font-style-normal);
     font-weight: var(--font-weight-700);
 }
-
-/* .outer-box-nav {
-    width: min(85%, 120rem);
-} */
 
 .outer-box, .outer-box-nav {
     width: min(85%, 120rem);
@@ -199,7 +197,7 @@ nav {
     /* background-color: rgba(0, 140, 255, 0.637); */
     z-index: 500; 
     display: none;
-    /* ^^^ for intersection observer */
+    /* ^^^ for intersection observer on/off*/
 }
 
 @supports (backdrop-filter: blur(0)) {
@@ -223,25 +221,25 @@ nav {
     text-decoration: none;
 }
 
-.mobile-hide-searchbar-below {
-    display: none;
-}
-
 .width-100 {
     width: 100%;
-} /*TBR*/
+}
 
-.nav-flex-gap, .nav-flex-gap-icons {
-    gap: clamp(1rem, 4vw, 2.5rem);
-} /*to be moved to other class or removed*/
+.nav-flex-gap, .nav-flex-gap-icons, .nav-list-gap {
+    gap: var(--nav-gap-vw);
+}
 
 .mobile-menu {
     display: none;
 }
 
-.mobile-menu-text {    
+.mobile-menu-text {
+    display: none;
+    text-align: left;
+    /* adjust etc ^^^ */
+    font-weight: var(--font-weight-800);  
     color: var(--secondary-color);
-    padding-right: 0.75rem;
+    /* padding-right: 0.75rem; */
 }
 
 /*input label add (?) */
@@ -308,6 +306,11 @@ input[type="search" i]::-webkit-search-cancel-button {
 
 .icon-account-properties {
     display: block;
+}
+
+.mobile-menu-account {
+    display: none;
+    margin-top: 4rem;
 }
 
 .shop-block {
@@ -631,6 +634,18 @@ footer {
         cursor: pointer;        
     }
 
+    .mobile-menu-text, .mobile-menu-account {
+        display: flex;        
+    }
+
+    .mobile-menu-text {
+        margin-bottom: 3rem;
+    }
+
+    .margin-right {
+        margin-right: 0.5rem;
+    }
+
     .flex-menu {
         flex-direction: column;
     }
@@ -644,11 +659,24 @@ footer {
         bottom: 0;        
         padding: 3rem;
         flex-direction: column;        
-        background-color: hsla(0, 0%, 0%, 0.9);        
-        display: flex;
+        background-color: hsla(0, 0%, 0%, 0.9);     
+        align-items: start;
         z-index: 1500;
-    } /*nav flex gap check with smaller sizing changes*/
+        display: flex;
+        /* ^^^ on/off JS */
+    }
 
+    .nav-list-gap {
+        gap: var(--nav-gap-vh);
+    }
+
+    .nav-flex-gap-icons {
+        gap: 0.75rem;
+    } 
+
+    /* .nav-items-box > ul > li:hover {        
+    } */ 
+    /* WIP */
     
     @supports (backdrop-filter: blur(0)) {
         .nav-items-box {
@@ -659,10 +687,6 @@ footer {
     .hover-enlarge:hover {
         transform: scale(1.15);
     }
-
-    .nav-flex-gap-icons {
-        gap: 0.75rem;
-    } /*moved or merged with other classes*/
 
     .mobile-hide, .mobile-hide-searchbar-below {
         display: none;
@@ -703,12 +727,49 @@ footer {
     }
 }
 
+
+@media screen and (max-height: 27em) and (orientation: landscape){
+    /*Nav*/
+    .mobile-menu-text {
+        margin-bottom: 1.5rem;
+    }
+    
+    .mobile-menu-account {
+        margin-top: 1.5rem;
+    }
+
+    /*Home*/
+    .title-main > h1, .title-main > h2 {
+        font-size: 2rem;
+    }
+
+    .button-action-shop {
+        margin-top: 0rem;
+        padding: 0.75rem 2rem 0.75rem 2rem;
+    }
+
+    /*Story*/
+    .story-text > h3, .story-text > h4 {
+        font-size: 1.8rem;
+        white-space: nowrap;
+    }
+
+    .story-text-paragraph {
+        font-size: var(--font-size-main-medium);
+    }
+}
+
+
 /*Mobile narrow*/
 @media screen and (max-width: 27em){
     /*Nav*/
     nav {
         padding-top: 1rem;
         min-height: 7rem;
+    }
+
+    .nav-items-box {
+        inset: 0 0 0 0;
     }
 
     .flex-wrap {
@@ -719,19 +780,7 @@ footer {
         order: 1;
         flex-grow: 1;
         width: 100%;
-    }
-    
-    .mobile-menu-text {
-        display: none;
-    }
-
-    .mobile-hide-searchbar {
-        display: none;
-    }
-
-    .mobile-hide-searchbar-below {
-        display: flex;
-    }
+    }      
 
     /*Home*/
     .grid-title-home {

@@ -42,3 +42,5 @@
  Update 16 - More font variables added, selection color css, hover css parts.
 
  Update 17 - Mobile nav base CSS added.
+
+ Update 18 - Added more mobile nav CSS. More CSS for page responsiveness added.
