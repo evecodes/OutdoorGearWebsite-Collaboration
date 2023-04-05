@@ -54,7 +54,7 @@ img, svg, picture, video {
 }
 
 .underline-white-hover:hover {
-    padding-bottom: 0.2rem;
+    /* padding-bottom: 0.2rem; */
     border-bottom: 0.2rem solid var(--secondary-color);
 }
 
@@ -120,7 +120,8 @@ P {
 
 .small-img {
     height: 200px;
-}
+} 
+/*combine small/home img, add rem*/
 
 .flex-horizontal {
     display: flex;
@@ -178,6 +179,14 @@ P {
     z-index: 50;
 }
 
+.desktop-hide {
+    display: none;
+}
+
+.display-flex {
+    display: flex;
+}
+
 /*Nav*/
 nav {
     /* height: 6rem; */
@@ -218,7 +227,11 @@ nav {
     font-weight: var(--font-weight-600);
     cursor: pointer;
     white-space: nowrap;
-    text-decoration: none;
+    text-decoration: none;    
+}
+
+.nav-link {
+    padding-bottom: 0.2rem;
 }
 
 .width-100 {
@@ -231,6 +244,13 @@ nav {
 
 .mobile-menu {
     display: none;
+}
+
+.btn-menu-close {
+    position: absolute;
+    height: 1.5rem;
+    top: 2%;
+    right: 10%;
 }
 
 .mobile-menu-text {
@@ -290,7 +310,7 @@ input[type="search" i]::-webkit-search-cancel-button {
 }
 
 .nav-items-box {
-    display: flex;
+    /* display: flex; */
     align-items: center;
     margin-left: auto;
 }
@@ -302,7 +322,8 @@ input[type="search" i]::-webkit-search-cancel-button {
 
 .text-account:hover {
     margin-top: 8px;
-} /*TBR or adjusted underline, because of button state*/
+} 
+/*TBR or adjusted underline, because of button state*/
 
 .icon-account-properties {
     display: block;
@@ -310,7 +331,7 @@ input[type="search" i]::-webkit-search-cancel-button {
 
 .mobile-menu-account {
     display: none;
-    margin-top: 4rem;
+    margin-top: 3.5rem;
 }
 
 .shop-block {
@@ -625,6 +646,10 @@ footer {
 
 @media screen and (max-width: 78.5em){
     /*Nav*/
+    .display-none-toggle {
+        display: none;
+    }
+
     .icon-box {
         margin-left: auto;
     }
@@ -639,35 +664,40 @@ footer {
     }
 
     .mobile-menu-text {
+        margin-top: 1rem;
         margin-bottom: 3rem;
+        padding: 3rem;
+        text-align: left;
+        pointer-events: none;
     }
 
     .margin-right {
         margin-right: 0.5rem;
-    }
+    } /*check gap version button account mobile*/
 
     .flex-menu {
         flex-direction: column;
     }
 
     .nav-items-box {
-        position: fixed;        
+        position: fixed;
+        overflow: hidden;        
         top: 0;
         left: 0;
+        right: auto;
         /* right: 70%; */
         /* inset: 0 70% 0 0; */
         bottom: 0;        
-        padding: 3rem;
+        /* padding: 3rem; */
         flex-direction: column;        
         background-color: hsla(0, 0%, 0%, 0.9);     
         align-items: start;
-        z-index: 1500;
-        display: flex;
-        /* ^^^ on/off JS */
+        z-index: 1500;        
+        /* ^^^ on/off JS seperate class */
     }
 
     .nav-list-gap {
-        gap: var(--nav-gap-vh);
+        gap: 0;
     }
 
     .nav-flex-gap-icons {
@@ -677,6 +707,33 @@ footer {
     /* .nav-items-box > ul > li:hover {        
     } */ 
     /* WIP */
+
+    .nav-link {
+        display: table;
+        padding: 1.5rem 4rem 1.5rem 3rem;
+        /* ^^^ padding tweak screen heights small*/ 
+        transition: transform 500ms ease-out;
+        width: 100%;
+    }
+    
+    .mobile-menu-account {
+        padding: 0 4rem 0 3rem;
+    }
+
+    .nav-link:hover {
+        display: table;
+        /* transform: translateX(0.5rem); */
+        /* ^^^ turn back on, after margin check*/
+        color: black;
+        background-color: white;
+    }
+
+    .underline-white-hover:hover {        
+        border-bottom: none;
+        /* padding-bottom: 1.5rem;         */
+    } 
+    /*padding custom property, check mobile version ^^^*/
+
     
     @supports (backdrop-filter: blur(0)) {
         .nav-items-box {
@@ -690,6 +747,10 @@ footer {
 
     .mobile-hide, .mobile-hide-searchbar-below {
         display: none;
+    }
+
+    .desktop-hide {
+        display: block;
     }
 
     /*Products*/
@@ -731,11 +792,16 @@ footer {
 @media screen and (max-height: 27em) and (orientation: landscape){
     /*Nav*/
     .mobile-menu-text {
-        margin-bottom: 1.5rem;
+        margin: 0;
+        padding-bottom: 1.5rem;
     }
     
     .mobile-menu-account {
         margin-top: 1.5rem;
+    }
+
+    .nav-link {
+        padding: 0.25rem 4rem 0.25rem 3rem;
     }
 
     /*Home*/
