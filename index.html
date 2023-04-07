@@ -12,7 +12,7 @@
 </head>
 <body>
     <header>
-        <nav class="position-fixed flex-horizontal flex-alignment-center width-100">
+        <nav class="position-fixed flex-horizontal flex-alignment-center width-100" data-nav>
 
             <div class="bg-color outer-box-nav">
                 <div class="flex-horizontal flex-alignment-center flex-wrap flex-grow nav-flex-gap padding-left-right">
@@ -35,7 +35,7 @@
                         </form>                        
                     </div>
     
-                    <div class="nav-items-box display-flex display-none-toggle">
+                    <div class="nav-items-box display-flex" data-nav-mobile="">
                         <button class="btn-interactive-element"><img src="icon_img/window-close-white.svg" alt="Close button" class="hover-enlarge btn-menu-close desktop-hide"></button>
                         <p class="mobile-menu-text"><span>Menu</span></p>
                         <ul class="nav-bar nav-bar-links flex-menu nav-list-gap">
@@ -73,7 +73,7 @@
             
         </nav>
 
-        <div class="nav-background-blur"></div>
+        <div class="nav-background nav-background-base" data-nav-blur=""></div>
 
     </header>
 
@@ -83,7 +83,7 @@
             <div class="grid-homepage">
                 <div class="grid-title-home padding-left">
                     <div class="title-main">
-                        <h1>Get in <span class="highlight-black-curve">gear</span></h1>
+                        <h1>Get in <span class="highlight-black-curve" data-h1>gear</span></h1>
                         <h2>Adventure in comfort</h2>
                         <button class="button-action-shop">Shop now</button>
                     </div>                    

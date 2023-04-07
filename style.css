@@ -2,6 +2,7 @@
     --key-color: hsl(183, 60%, 44%);
     --key-color-80percent: hsla(183, 60%, 44%, 0.8);
     --main-color: hsl(0, 0%, 0%);
+    --main-color-90percent: hsla(0, 0%, 0%, 0.9);
     --secondary-color: hsl(0, 0%, 100%);
     --secondary-color-80percent: hsla(0, 0%, 100%, 0.8);
     --tertiary-color-80percent: hsla(187, 100%, 20%, 0.75);
@@ -42,6 +43,7 @@ html {
 
 body {
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 ::selection {
@@ -183,6 +185,11 @@ P {
     display: none;
 }
 
+.observer-toggle {
+    background-color: transparent;
+}
+/* ^^^ TBR (?) - no function */
+
 .display-flex {
     display: flex;
 }
@@ -191,26 +198,28 @@ P {
 nav {
     /* height: 6rem; */
     min-height: var(--nav-height);
-    z-index: 999;
-    /* background-color: hsla(207, 100%, 50%, 0.459);         */
-    /* padding-top: 1rem; */
-    
-    /* ^^^for intersection observer, white bg add over title*/
+    z-index: 999;    
 }
 
-.nav-background-blur {    
+.nav-background-base {
+    background-color: transparent;
+    transition: background-color 250ms, backdrop-filter 100ms ease-out;
+}
+
+[data-nav-blur="active"] {
+    background-color: hsla(0, 0%, 0%, 0.6);
+}
+
+.nav-background {    
     position: fixed; 
     top: 0;   
     min-height: var(--nav-height);
-    min-width: 100%;    
-    /* background-color: rgba(0, 140, 255, 0.637); */
-    z-index: 500; 
-    display: none;
-    /* ^^^ for intersection observer on/off*/
+    min-width: 100%;
+    z-index: 500;      
 }
 
 @supports (backdrop-filter: blur(0)) {
-    .nav-background-blur {
+    [data-nav-blur="active"] {
         backdrop-filter: blur(var(--backdrop-filter-blur));
     }
 } 
@@ -648,7 +657,7 @@ footer {
     /*Nav*/
     .display-none-toggle {
         display: none;
-    }
+    } /* ^^^ check if used*/
 
     .icon-box {
         margin-left: auto;
@@ -690,10 +699,15 @@ footer {
         bottom: 0;        
         /* padding: 3rem; */
         flex-direction: column;        
-        background-color: hsla(0, 0%, 0%, 0.9);     
+        background-color: var(--main-color-90percent);    
         align-items: start;
-        z-index: 1500;        
-        /* ^^^ on/off JS seperate class */
+        z-index: 1500;
+        transform: translateX(-100%);
+        transition: transform 250ms ease-in-out;
+    }
+
+    [data-nav-mobile="active"] {
+        transform: translateX(0);
     }
 
     .nav-list-gap {
@@ -702,11 +716,7 @@ footer {
 
     .nav-flex-gap-icons {
         gap: 0.75rem;
-    } 
-
-    /* .nav-items-box > ul > li:hover {        
-    } */ 
-    /* WIP */
+    }     
 
     .nav-link {
         display: table;
@@ -747,7 +757,7 @@ footer {
 
     .mobile-hide, .mobile-hide-searchbar-below {
         display: none;
-    }
+    } /*^^^ check if used*/
 
     .desktop-hide {
         display: block;
@@ -829,8 +839,9 @@ footer {
 /*Mobile narrow*/
 @media screen and (max-width: 27em){
     /*Nav*/
-    nav {
+    nav, .nav-background {
         padding-top: 1rem;
+        padding-bottom: 1rem;
         min-height: 7rem;
     }
 

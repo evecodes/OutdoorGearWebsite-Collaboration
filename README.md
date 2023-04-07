@@ -46,3 +46,5 @@
  Update 18 - Added more mobile nav CSS. More CSS for page responsiveness added.
 
  Update 19 - JS to mobile menu added. More responsive CSS.
+
+ Update 20 - More JS and CSS added for mobile menu and nav.
