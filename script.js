@@ -2,35 +2,38 @@
 const BtnMenuHamburger = document.querySelector(".btn-menu-hamburger")
 const BtnMenuClose = document.querySelector(".btn-menu-close");
 const NavItemsBox = document.querySelector(".nav-items-box");
+const CheckActive = NavItemsBox.getAttribute("data-nav-mobile");
 
-BtnMenuHamburger.addEventListener('click', e=> {
-    NavItemsBox.setAttribute('data-nav-mobile', 'active');
-});
+BtnMenuHamburger.addEventListener('click', e=> {    
+    if (CheckActive === "closed") {
+        NavItemsBox.setAttribute('data-nav-mobile', 'active');
+    } else return
+})
 
-BtnMenuClose.addEventListener('click', e=> {
-    NavItemsBox.removeAttribute('data-nav-mobile', 'active');
-} ); 
-
-
-
-//Mobile menu closes when changing to desktop size//
-// const mediaQueryMobileOff = window.matchMedia('(max-width: 78.5em)');
-
-// function navMenuChange(mediaQueryMobileOff) {
-//     if (mediaQueryMobileOff.matches) {
-//         return;
-//     } else {
-//         NavItemsBox.removeAttribute('data-nav-mobile', 'active');
-//     }
-// }
-
-// navMenuChange(mediaQueryMobileOff);
-
-// mediaQueryMobileOff.addEventListener('change', navMenuChange);
+BtnMenuClose.addEventListener('click', e=> {    
+    NavItemsBox.setAttribute('data-nav-mobile', 'closed');
+})
 
 
 
-//Intersection Observer - navigation changes on scroll//
+// Mobile menu closes when changing to desktop size//
+const mediaQueryMobileOff = window.matchMedia('(max-width: 78.5em)');
+
+function navMenuChange(mediaQueryMobileOff) {
+    if (mediaQueryMobileOff.matches) {
+        return;
+    } else {
+        NavItemsBox.setAttribute('data-nav-mobile', 'closed');
+    }
+}
+
+navMenuChange(mediaQueryMobileOff);
+
+mediaQueryMobileOff.addEventListener('change', navMenuChange);
+
+
+
+// Intersection Observer - navigation changes on scroll//
 
 const NavDataPoint = document.querySelector("data-nav");
 const H1DataPoint = document.querySelector("[data-h1]");
@@ -53,4 +56,3 @@ const navObserver = new IntersectionObserver (entries => {
 }, navObserverOptions);
 
 navObserver.observe(H1DataPoint);
-//unobserve to do (?)//

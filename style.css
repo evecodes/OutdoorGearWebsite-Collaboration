@@ -55,6 +55,8 @@ img, svg, picture, video {
     display: block;
 }
 
+/* to add, Safari img properties prevent deform */
+
 .underline-white-hover:hover {
     /* padding-bottom: 0.2rem; */
     border-bottom: 0.2rem solid var(--secondary-color);
@@ -185,10 +187,10 @@ P {
     display: none;
 }
 
-.observer-toggle {
-    background-color: transparent;
-}
-/* ^^^ TBR (?) - no function */
+.btn-menu-hamburger {
+    position: relative;    
+} 
+/* ^^^ For possible bg-url use */
 
 .display-flex {
     display: flex;
@@ -243,6 +245,11 @@ nav {
     padding-bottom: 0.2rem;
 }
 
+.account-tag {
+    margin-left: 0.1rem;
+    margin-top: 0.2rem;
+}
+
 .width-100 {
     width: 100%;
 }
@@ -264,11 +271,9 @@ nav {
 
 .mobile-menu-text {
     display: none;
-    text-align: left;
-    /* adjust etc ^^^ */
+    text-align: left;    
     font-weight: var(--font-weight-800);  
-    color: var(--secondary-color);
-    /* padding-right: 0.75rem; */
+    color: var(--secondary-color);    
 }
 
 /*input label add (?) */
@@ -331,8 +336,7 @@ input[type="search" i]::-webkit-search-cancel-button {
 
 .text-account:hover {
     margin-top: 8px;
-} 
-/*TBR or adjusted underline, because of button state*/
+}
 
 .icon-account-properties {
     display: block;
@@ -342,10 +346,6 @@ input[type="search" i]::-webkit-search-cancel-button {
     display: none;
     margin-top: 3.5rem;
 }
-
-.shop-block {
-    cursor: pointer;
-} /*unused, TBR*/
 
 .number-icon-cart {
     position: relative;
@@ -371,8 +371,7 @@ input[type="search" i]::-webkit-search-cancel-button {
 
 /*Home*/
 .grid-homepage {    
-    height: 100vh;
-    /* height: 100dvh; */
+    height: 100vh;    
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;    
@@ -501,11 +500,6 @@ input[type="search" i]::-webkit-search-cancel-button {
     max-width: 100%;
 }
 
-/* .grid-product > img {
-    /* place-self: center; */
-    /*above property works
-} */
-
 .product-name, .highlight-price {
     font-family: var(--main-font);
     font-style: var(--font-style-normal);
@@ -571,8 +565,7 @@ input[type="search" i]::-webkit-search-cancel-button {
 /*Story*/
 .story-block {
     display: grid;
-    grid-template-columns: 40% 1fr;
-    /* height: 40rem; */
+    grid-template-columns: 40% 1fr;    
     align-items: center;    
     padding-top: 4rem;
     padding-left: 9%;   
@@ -655,10 +648,6 @@ footer {
 
 @media screen and (max-width: 78.5em){
     /*Nav*/
-    .display-none-toggle {
-        display: none;
-    } /* ^^^ check if used*/
-
     .icon-box {
         margin-left: auto;
     }
@@ -669,8 +658,14 @@ footer {
     }
 
     .mobile-menu-text, .mobile-menu-account {
-        display: flex;        
+        display: flex;
+        width: 100%;    
     }
+
+    .nav-items-box > ul {
+        width: 100%;
+    }
+    /*nav items height ul/li mobile version to do*/
 
     .mobile-menu-text {
         margin-top: 1rem;
@@ -692,22 +687,18 @@ footer {
         position: fixed;
         overflow: hidden;        
         top: 0;
-        left: 0;
-        right: auto;
-        /* right: 70%; */
-        /* inset: 0 70% 0 0; */
-        bottom: 0;        
-        /* padding: 3rem; */
+        left: -60%;
+        right: auto;        
+        bottom: 0;
         flex-direction: column;        
         background-color: var(--main-color-90percent);    
         align-items: start;
-        z-index: 1500;
-        transform: translateX(-100%);
-        transition: transform 250ms ease-in-out;
+        z-index: 1500;        
+        transition: left 250ms ease-out;
     }
 
-    [data-nav-mobile="active"] {
-        transform: translateX(0);
+    [data-nav-mobile="active"] {        
+        left: 0;
     }
 
     .nav-list-gap {
@@ -720,8 +711,7 @@ footer {
 
     .nav-link {
         display: table;
-        padding: 1.5rem 4rem 1.5rem 3rem;
-        /* ^^^ padding tweak screen heights small*/ 
+        padding: 1.5rem 4rem 1.5rem 3rem;        
         transition: transform 500ms ease-out;
         width: 100%;
     }
@@ -740,7 +730,7 @@ footer {
 
     .underline-white-hover:hover {        
         border-bottom: none;
-        /* padding-bottom: 1.5rem;         */
+        /* padding-bottom: 1.5rem;*/
     } 
     /*padding custom property, check mobile version ^^^*/
 
@@ -755,9 +745,9 @@ footer {
         transform: scale(1.15);
     }
 
-    .mobile-hide, .mobile-hide-searchbar-below {
+    .mobile-hide {
         display: none;
-    } /*^^^ check if used*/
+    }
 
     .desktop-hide {
         display: block;
@@ -845,8 +835,25 @@ footer {
         min-height: 7rem;
     }
 
-    .nav-items-box {
-        inset: 0 0 0 0;
+    .nav-items-box {        
+        top: 0;
+        left: -100%;
+        right: auto;
+        bottom: 0;        
+        transition: left 250ms ease-out, right 250ms ease-out;
+    }
+    
+    [data-nav-mobile="active"] {        
+        left: 0;
+        right: 0;
+    }
+
+    .nav-bar-links > li {
+        text-align: center;
+    }
+
+    .mobile-menu-text {
+        justify-content: center;
     }
 
     .flex-wrap {
@@ -899,8 +906,7 @@ footer {
     .story-text {
         margin: 0 auto 3rem auto;
         max-width: 80%;
-        padding: 0;
-        /* padding: 0 1.5rem 3rem 1.5rem; */
+        padding: 0;        
     }   
     
     .story-text-paragraph {
