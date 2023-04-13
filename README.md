@@ -50,3 +50,5 @@
  Update 20 - More JS and CSS added for mobile menu and nav.
 
  Update 21 - Added CSS and JS for navigation, added nav transitions.
+
+ Update 22 - More responsive CSS, nav menu jitter JS fix.
