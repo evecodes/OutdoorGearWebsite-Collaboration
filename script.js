@@ -38,12 +38,13 @@ mediaQueryMobileOff.addEventListener('change', navMenuChange);
 const mediaQueryNavWidth = window.matchMedia('(min-width: 78.5em)');
 
 function transitionToggle(mediaQueryNavWidth) {
-    if (mediaQueryNavWidth.matches){                
+    if (mediaQueryNavWidth.matches){
+        clearTimeout(timeout); 
         NavItemsBox.setAttribute('data-nav-itembox-transition', 'off');
-    } else {
-        timeout = setTimeout(e=> {            
+    } else {        
+        timeout = setTimeout(e=> {
             NavItemsBox.setAttribute('data-nav-itembox-transition', 'active');
-        }, 0);        
+        }, 0);               
     }
 }
 
