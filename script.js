@@ -39,13 +39,21 @@ const mediaQueryNavWidth = window.matchMedia('(min-width: 78.5em)');
 
 function transitionToggle(mediaQueryNavWidth) {
     if (mediaQueryNavWidth.matches){
-        clearTimeout(timeout); 
+        clearQuickTimer()
         NavItemsBox.setAttribute('data-nav-itembox-transition', 'off');
-    } else {        
-        timeout = setTimeout(e=> {
-            NavItemsBox.setAttribute('data-nav-itembox-transition', 'active');
-        }, 0);               
+    } else {
+        quickTimerSetAttribute();   
     }
+}
+
+function quickTimerSetAttribute() {
+    setTimeout( e=> {        
+        NavItemsBox.setAttribute('data-nav-itembox-transition', 'active');
+    }, 0 ); 
+}
+
+function clearQuickTimer() {
+    clearTimeout(setTimeout);  
 }
 
 transitionToggle(mediaQueryNavWidth);
