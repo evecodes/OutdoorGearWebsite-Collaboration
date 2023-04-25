@@ -54,3 +54,5 @@
  Update 22 - More responsive CSS, nav menu jitter JS fix.
 
  Update 23 - Carousel base CSS/JS added.
+
+ Update 24 - More Carousel CSS/JSS added.

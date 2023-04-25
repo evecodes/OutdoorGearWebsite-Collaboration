@@ -15,53 +15,28 @@ BtnMenuClose.addEventListener('click', e=> {
 })
 
 
-
 //JS media queries
-
-const mediaQueryMobileOff = window.matchMedia('(max-width: 78.5em)');
-const mediaQueryMedium = window.matchMedia('(max-width: 46em)');
-const mediaQueryMobile = window.matchMedia('(max-width: 27em)');
-const testQuery = window.matchMedia('(min-width: 400px) and (max-width: 1000px)');
-const mediaQueryNavWidth = window.matchMedia('(min-width: 78.5em)');
-
-const bodystuff = document.querySelector('header');
-
-
-//----- Works---- test min max query
-// function testTest(testQuery) {
-//     if (testQuery.matches) {
-//         bodystuff.setAttribute('data-alive', 'alive');
-//     } else {
-//         bodystuff.setAttribute('data-alive', 'nope');
-//         console.log('look here')
-//     }
-// }
-
-// testTest(testQuery);
-
-// testQuery.addEventListener('change', testTest);
+const mediaQueryDesktop = window.matchMedia('(min-width: 1256px)');
+const mediaQueryMedium = window.matchMedia('(min-width: 736px) and (max-width: 1255.99px)');
+const mediaQueryMobile = window.matchMedia('(max-width: 735.99px)');
 
 
 // Mobile menu closes when changing to desktop size //
-
-function navMenuChange(mediaQueryMobileOff) {
-    if (mediaQueryMobileOff.matches) {
+function navMenuChange(mediaQueryDesktop) {
+    if (mediaQueryDesktop.matches) {
+        NavItemsBox.setAttribute('data-nav-mobile', 'closed');        
+    } else {        
         return;
-    } else {
-        NavItemsBox.setAttribute('data-nav-mobile', 'closed');
     }
 }
 
-navMenuChange(mediaQueryMobileOff);
-
-mediaQueryMobileOff.addEventListener('change', navMenuChange);
-
+navMenuChange(mediaQueryDesktop);
+mediaQueryDesktop.addEventListener('change', navMenuChange);
 
 
 // Media query JS for mobile nav transition popup prevent, timeout added for Firefox //
-
-function transitionToggle(mediaQueryNavWidth) {
-    if (mediaQueryNavWidth.matches){
+function transitionToggle(mediaQueryDesktop) {
+    if (mediaQueryDesktop.matches){
         clearQuickTimer()
         NavItemsBox.setAttribute('data-nav-itembox-transition', 'off');
     } else {
@@ -79,29 +54,20 @@ function clearQuickTimer() {
     clearTimeout(setTimeout);  
 }
 
-transitionToggle(mediaQueryNavWidth);
-
-mediaQueryNavWidth.addEventListener('change', transitionToggle);
-
+transitionToggle(mediaQueryDesktop);
+mediaQueryDesktop.addEventListener('change', transitionToggle);
 
 
-// Product carousel js using js media queries
 
-//notes
-//Code split in/out media queries
-//media queries in PX ipv EM
-
-
+// Product carousel js using js media queries//
 const productBox = document.querySelector(".product-box");
 const gridProductCarousel = document.querySelector(".grid-product-carousel");
 
-const singleProducts = gridProductCarousel.querySelectorAll('.grid-product').length / 4;
-// ^^^^ updating this const to a let  ^^^^^ //
+let singleProducts = gridProductCarousel.querySelectorAll('.grid-product').length;
 let slideOffset = 0;
 
-const buttonArrowPrevious = document.querySelector(".carousel-arrow-left");
-const buttonArrowNext = document.querySelector(".carousel-arrow-right");
-// ^^^ fix html/css names ^^^^ //
+const buttonArrowPrevious = document.querySelector(".carousel-arrow-previous");
+const buttonArrowNext = document.querySelector(".carousel-arrow-next");
 
 const dotBtn1 = document.querySelector('.dot-one');
 const dotBtn2 = document.querySelector('.dot-two');
@@ -118,6 +84,35 @@ const moveSlides = offsetCheck => {
     }px)`;            
 };
 
+//JS for carousel arrow buttons//
+function previousSlide() {
+    if (slideOffset >= 1) {
+        slideOffset = slideOffset - 1;
+    } else {
+        slideOffset = singleProducts - 1;
+    }    
+    moveSlides(slideOffset);
+    checkDots();
+    console.log('lamp')
+    console.log(slideOffset)  
+}
+
+function nextSlide() {    
+    if (slideOffset < singleProducts - 1) {
+        slideOffset = slideOffset + 1
+    } else {
+        slideOffset = 0;        
+    }    
+    moveSlides(slideOffset);
+    checkDots();
+    console.log('flower')
+    console.log(slideOffset)    
+}
+
+buttonArrowPrevious.addEventListener('click', previousSlide);
+buttonArrowNext.addEventListener('click', nextSlide);
+
+//JS for carousel dot buttons//
 function checkDots(){
     if (slideOffset === 0) {        
         dotBtn1.setAttribute('data-active', 'on');
@@ -156,85 +151,96 @@ function checkDots(){
     }
 };
 
-function previousSlide() {
-    if (slideOffset >= 1) {
-        slideOffset = slideOffset - 1;
-    } else {
-        slideOffset = singleProducts - 1;
-    }    
-    moveSlides(slideOffset);
+dotBtn1.addEventListener('click', e=> {    
+    moveSlides(slideOffset = 0);
     checkDots();
-    console.log('lamp')
-    console.log(slideOffset)  
+});
+
+dotBtn2.addEventListener('click', e=> {    
+    moveSlides(slideOffset = 1);
+    checkDots();
+});
+
+dotBtn3.addEventListener('click', e=> {    
+    moveSlides(slideOffset = 2);
+    checkDots();    
+});
+
+dotBtn4.addEventListener('click', e=>{
+    moveSlides(slideOffset = 3);
+    checkDots(); 
+});
+
+dotBtn5.addEventListener('click', e=>{
+    moveSlides(slideOffset = 4);
+    checkDots(); 
+});
+
+dotBtn6.addEventListener('click', e=>{
+    moveSlides(slideOffset = 5);
+    checkDots(); 
+});
+
+//Reset carousel to first slide on resize//
+function slideListen() {
+    slideOffset = 0
+    moveSlides(slideOffset)
+    checkDots();           
 }
 
-function nextSlide() {    
-    if (slideOffset < singleProducts - 1) {
-        slideOffset = slideOffset + 1
-    } else {
-        slideOffset = 0;        
-    }    
-    moveSlides(slideOffset);
-    checkDots();
-    console.log('flower')
-    console.log(slideOffset)    
-}
+window.addEventListener('resize', slideListen);
 
-buttonArrowPrevious.addEventListener('click', previousSlide);
-buttonArrowNext.addEventListener('click', nextSlide);
-
-// const controller = new AbortController()
-
-
-function carouselDesktop(mediaQueryMobileOff) {
-    if (mediaQueryMobileOff.matches) {
+//MQ carousel desktop//
+function carouselDesktop(mediaQueryDesktop) {
+    if (mediaQueryDesktop.matches) {
+        singleProducts = 3
+        console.log(singleProducts);        
+        console.log('desktop on');        
+    } else {        
         console.log('desktop off')
-        // controller.abort()
+        console.log(singleProducts);        
         return;
-    } else {      
-
-        // const/let single products here//
-        console.log('desktop on');  
-
-        dotBtn1.addEventListener('click', e=> {    
-            moveSlides(slideOffset = 0);
-            checkDots();
-        });
-
-        dotBtn2.addEventListener('click', e=> {    
-            moveSlides(slideOffset = 1);
-            checkDots();
-        });
-
-        dotBtn3.addEventListener('click', e=> {    
-            moveSlides(slideOffset = 2);
-            checkDots();
-            console.log('cake')
-        });
-
-        // ^^^^^ outside MQ, no doubling event listener //
-        
-
-        function slideListen() {
-            slideOffset = 0
-            moveSlides(slideOffset)
-            checkDots();   
-            console.log('peanut')         
-        }
-
-        window.addEventListener('resize', slideListen);
-        // ^^^ outside MQ? //
     }
 }
 
-carouselDesktop(mediaQueryMobileOff);
+carouselDesktop(mediaQueryDesktop);
+mediaQueryDesktop.addEventListener('change', carouselDesktop);
 
-mediaQueryMobileOff.addEventListener('change', carouselDesktop);
+//MQ carousel medium//
+function carouselMedium(mediaQueryMedium) {
+    if (mediaQueryMedium.matches) {
+        console.log('medium on')
+        singleProducts = 4
+        console.log(singleProducts);       
+        
+    } else {        
+        console.log(singleProducts);        
+        console.log('medium off'); 
+        return;
+    }
+}
 
+carouselDesktop(mediaQueryMedium);
+mediaQueryMedium.addEventListener('change', carouselMedium);
+
+//MQ carousel mobile//
+function carouselMobile(mediaQueryMobile) {
+    if (mediaQueryMobile.matches) {
+        singleProducts = 6
+        console.log('mobile on')
+        console.log(singleProducts);
+    } else {        
+        console.log(singleProducts);        
+        console.log('mobile off'); 
+        return;
+    }
+}
+
+carouselMobile(mediaQueryMobile);
+mediaQueryMobile.addEventListener('change', carouselMobile);
 
 
 // Intersection Observer - navigation changes on scroll //
-
 const NavDataPoint = document.querySelector("data-nav");
 const H1DataPoint = document.querySelector("[data-h1]");
 const NavBackground = document.querySelector(".nav-background")
