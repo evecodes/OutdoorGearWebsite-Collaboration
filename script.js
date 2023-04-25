@@ -92,9 +92,7 @@ function previousSlide() {
         slideOffset = singleProducts - 1;
     }    
     moveSlides(slideOffset);
-    checkDots();
-    console.log('lamp')
-    console.log(slideOffset)  
+    checkDots();     
 }
 
 function nextSlide() {    
@@ -104,9 +102,7 @@ function nextSlide() {
         slideOffset = 0;        
     }    
     moveSlides(slideOffset);
-    checkDots();
-    console.log('flower')
-    console.log(slideOffset)    
+    checkDots();       
 }
 
 buttonArrowPrevious.addEventListener('click', previousSlide);
@@ -193,12 +189,8 @@ window.addEventListener('resize', slideListen);
 //MQ carousel desktop//
 function carouselDesktop(mediaQueryDesktop) {
     if (mediaQueryDesktop.matches) {
-        singleProducts = 3
-        console.log(singleProducts);        
-        console.log('desktop on');        
-    } else {        
-        console.log('desktop off')
-        console.log(singleProducts);        
+        singleProducts = 3               
+    } else {  
         return;
     }
 }
@@ -208,14 +200,9 @@ mediaQueryDesktop.addEventListener('change', carouselDesktop);
 
 //MQ carousel medium//
 function carouselMedium(mediaQueryMedium) {
-    if (mediaQueryMedium.matches) {
-        console.log('medium on')
+    if (mediaQueryMedium.matches) {        
         singleProducts = 4
-        console.log(singleProducts);       
-        
-    } else {        
-        console.log(singleProducts);        
-        console.log('medium off'); 
+    } else {
         return;
     }
 }
@@ -227,11 +214,7 @@ mediaQueryMedium.addEventListener('change', carouselMedium);
 function carouselMobile(mediaQueryMobile) {
     if (mediaQueryMobile.matches) {
         singleProducts = 6
-        console.log('mobile on')
-        console.log(singleProducts);
-    } else {        
-        console.log(singleProducts);        
-        console.log('mobile off'); 
+    } else {
         return;
     }
 }
