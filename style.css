@@ -57,7 +57,14 @@ img, svg, picture, video {
     display: block;
 }
 
-/* to add, Safari img properties prevent deform */
+a > img, li > img, div > img, button > img {
+    display: flex;
+    align-items: flex-start;   
+    /* max-height: 100%;
+    max-width: 100%;  */
+}
+/* ^^^ needed for Safari*/
+
 
 .underline-white-hover:hover {
     /* padding-bottom: 0.2rem; */
