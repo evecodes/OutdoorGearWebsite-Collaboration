@@ -177,14 +177,26 @@ dotBtn6.addEventListener('click', e=>{
     checkDots(); 
 });
 
-//Reset carousel to first slide on resize//
-function slideListen() {
-    slideOffset = 0
-    moveSlides(slideOffset)
-    checkDots();           
-}
 
-window.addEventListener('resize', slideListen);
+//Reset carousel to first slide on window width resize//
+const widthBody = document.querySelector('.js-body-check');
+let bodyCheck = widthBody.offsetWidth;
+
+function slideListen() {
+    slideOffset = 0;
+    moveSlides(slideOffset);
+    checkDots();             
+};
+
+window.addEventListener('resize', e=> {
+    if (bodyCheck === widthBody.offsetWidth) {        
+        return;
+    } else {       
+        bodyCheck = widthBody.offsetWidth;      
+        slideListen();
+    }
+});
+
 
 //MQ carousel desktop//
 function carouselDesktop(mediaQueryDesktop) {
@@ -193,7 +205,7 @@ function carouselDesktop(mediaQueryDesktop) {
     } else {  
         return;
     }
-}
+};
 
 carouselDesktop(mediaQueryDesktop);
 mediaQueryDesktop.addEventListener('change', carouselDesktop);
@@ -205,9 +217,9 @@ function carouselMedium(mediaQueryMedium) {
     } else {
         return;
     }
-}
+};
 
-carouselDesktop(mediaQueryMedium);
+carouselMedium(mediaQueryMedium);
 mediaQueryMedium.addEventListener('change', carouselMedium);
 
 //MQ carousel mobile//
@@ -217,7 +229,7 @@ function carouselMobile(mediaQueryMobile) {
     } else {
         return;
     }
-}
+};
 
 carouselMobile(mediaQueryMobile);
 mediaQueryMobile.addEventListener('change', carouselMobile);
@@ -226,13 +238,13 @@ mediaQueryMobile.addEventListener('change', carouselMobile);
 // Intersection Observer - navigation changes on scroll //
 const NavDataPoint = document.querySelector("data-nav");
 const H1DataPoint = document.querySelector("[data-h1]");
-const NavBackground = document.querySelector(".nav-background")
+const NavBackground = document.querySelector(".nav-background");
 
 const navObserverOptions = {
     root: null,
     threshold: 0,
     rootMargin: "-15% 0% 0% 0%",
-}
+};
 
 const navObserver = new IntersectionObserver (entries => {
     entries.forEach(entry => {
