@@ -27,6 +27,7 @@
     --nav-gap-vh: clamp(1rem, 4vh, 2.5rem);
     /*bg-color class usable/unusable see html nav or TBR*/
     /*To do text blue overlap, lineheight test ---> STORY */
+    /*merge JS mobile menu close and mobile menu glitch in one part, more possible merge? Desktop JS*/
 }
 
 * {
@@ -305,7 +306,12 @@ input[type=search] {
     font-weight: var(--font-weight-500);
     font-family: var(--main-font);
     font-style: var(--font-style-normal);
+    -webkit-appearance: none; 
 }
+
+::-webkit-searchfield-decoration {display: none;};
+::-webkit-search-cancel-button { display: none; };
+/*-webkit parts for Safari search field/glass off*/
 
 input[type=search]:focus {
     background-color: var(--secondary-color);
