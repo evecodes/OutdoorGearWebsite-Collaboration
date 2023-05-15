@@ -25,9 +25,7 @@
     --backdrop-filter-blur: 0.75rem;
     --nav-gap-vw: clamp(1rem, 4vw, 2.5rem);
     --nav-gap-vh: clamp(1rem, 4vh, 2.5rem);
-    /*bg-color class usable/unusable see html nav or TBR*/
-    /*To do text blue overlap, lineheight test ---> STORY */
-    /*merge JS mobile menu close and mobile menu glitch in one part, more possible merge? Desktop JS*/
+    /*bg-color class usable/unusable see html nav or TBR*/    
 }
 
 * {
@@ -309,9 +307,9 @@ input[type=search] {
     -webkit-appearance: none; 
 }
 
-::-webkit-searchfield-decoration {display: none;};
-::-webkit-search-cancel-button { display: none; };
-/*-webkit parts for Safari search field/glass off*/
+/* ::-webkit-searchfield-decoration {display: none;};
+::-webkit-search-cancel-button {display: none; }; */
+/*   -webkit parts for Safari search field/glass off   */
 
 input[type=search]:focus {
     background-color: var(--secondary-color);
@@ -321,6 +319,10 @@ input[type=search]:focus {
 }
 
 input[type="search" i]::-webkit-search-cancel-button {
+    appearance: none;
+}
+
+input[type="search" i]::-webkit-searchfield-decoration {
     appearance: none;
 }
 
