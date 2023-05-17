@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="script.js" defer></script>
     <title>Get In Gear- Outdoor Gear</title>
     <meta name="description" content="MountainValley - Outdoor Gear"> 
@@ -19,13 +19,13 @@
     
                     <div class="mobile-menu flex-horizontal flex-alignment">                        
                         <button class="btn-interactive-element">
-                            <img src="icon_img/menu-white.svg" alt="Hamburger menu icon" class="logo-small hover-enlarge btn-menu-hamburger">
-                        </button>                        
+                            <img src="icon_img/menu-white-slim.svg" alt="Hamburger menu icon" class="icon-small hover-enlarge btn-menu-hamburger">
+                        </button>                      
                     </div>
     
                     <div>
                         <a href="index.html">
-                            <img src="icon_img/logo-white.png" alt="Outdoor Gear logo" class="logo-small">
+                            <img src="icon_img/logo-white.png" alt="Outdoor Gear logo" class="company-icon-small">
                         </a>                        
                     </div>                    
     
@@ -36,7 +36,7 @@
                     </div>
     
                     <div class="nav-items-box display-flex nav-transition" data-nav-mobile="closed" data-nav-itembox-transition="">
-                        <button class="btn-interactive-element"><img src="icon_img/window-close-white.svg" alt="Close button" class="hover-enlarge btn-menu-close desktop-hide"></button>
+                        <button class="btn-interactive-element"><img src="icon_img/window-close-white.svg" alt="Close button" class="hover-enlarge btn-menu-close desktop-hide icon-small"></button>
                         <p class="mobile-menu-text"><span>Menu</span></p>
                         <ul class="nav-bar nav-bar-links flex-menu nav-list-gap">
                             <li>
@@ -53,18 +53,18 @@
                             </li>                                          
                         </ul>
                         <button class="flex-horizontal flex-alignment btn-interactive-element mobile-menu-account">
-                            <img src="icon_img/icon-user-white.png" alt="User icon" class="icon-account-properties margin-right">
+                            <img src="icon_img/icon-account.svg" alt="User icon" class="icon-account-properties margin-right icon-small">
                             <a href="index.html" class="account-tag underline-white-hover">Account</a>                            
                         </button>                                                
                     </div>
     
                     <div class="icon-box nav-flex-gap-icons">
                         <button class="flex-horizontal flex-alignment btn-interactive-element">
-                            <img src="icon_img/icon-user-white.png" alt="User icon" class="icon-account-properties hover-enlarge">                            
+                            <img src="icon_img/icon-account.svg" alt="User icon" class="icon-account-properties hover-enlarge icon-small">                            
                             <a href="index.html" class="mobile-hide account-tag underline-white-hover text-account nav-link">Account</a>
                         </button>              
                         <button class="btn-interactive-element flex-horizontal number-icon-cart">
-                            <img src="icon_img/icon-cart-white.png" alt="Shop icon" class="hover-enlarge">
+                            <img src="icon_img/icon-shopping.svg" alt="Shop icon" class="hover-enlarge icon-small margin-right">
                         </button>                                           
                     </div>                
     
@@ -77,25 +77,27 @@
 
     </header>
 
-    <main>
+
+    <main class="">
 
         <section class="outer-box white-bg">
-            <div class="grid-homepage">
+            <div class="grid-homepage relative">
                 <div class="grid-title-home padding-left">
-                    <div class="title-main">
-                        <h1>Get in <span class="highlight-black-curve" data-h1>gear</span></h1>
-                        <h2>Adventure in comfort</h2>
-                        <button class="button-action-shop">Shop now</button>
-                    </div>                    
+                    <h1>Get in <span class="highlight-black-curve" data-h1>gear</span></h1>
+                    <h2>Adventure in comfort</h2>
+                    <button class="button-action-shop">Shop now</button>                                       
                 </div>
-                <div class="grid-overlay-dark"></div>
-                <div class="home-img grid-image-home position-relative">
-                    <img src="icon_img/kelly-repreza-CI4aWR9bY8c-unsplash-half-height.jpg" alt="Photograph of a backpacker with in the background mountains" class="home-img-properties position-absolute-home-img">
+
+                <div class="background-homepage">                    
+                    <div class="relative grid-img-home">
+                        <div class="grid-overlay-dark"></div>
+                        <img src="icon_img/kelly-repreza-CI4aWR9bY8c-unsplash-half-height.jpg" alt="Photograph of a backpacker with in the background mountains" class="home-img-properties position-absolute-home-img">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="outer-box white-bg padding-bottom">
+        <section class="outer-box white-bg">
             <div class="padding-left-right">
 
                 <div class="flex-horizontal flex-alignment">
@@ -103,8 +105,12 @@
                 </div>
                 
                 <div class="product-outer-box position-relative">
-                    <button class="carousel-arrow-previous position-absolute btn-interactive-element" aria-label="slider-button"></button>
-                    <button class="carousel-arrow-next position-absolute btn-interactive-element" aria-label="slider-button"></button>
+                    <button class="carousel-arrow-previous position-absolute btn-interactive-element" aria-label="slider-button">
+                        <img src="icon_img/arrow-back.svg" class="icon-small">
+                    </button>
+                    <button class="carousel-arrow-next position-absolute btn-interactive-element" aria-label="slider-button">
+                        <img src="icon_img/arrow-forward-.svg" class="icon-small">
+                    </button>
                     <div class="product-box">
                         <ul class="grid-product-carousel">
 
@@ -188,11 +194,14 @@
         </section>
 
         <section class="outer-box white-bg">
-            <div class="story-block">
+            <div class="story-block margin-bottom-3rem">
 
                 <div class="story-text">
-                    <h3>Get on the <span class="highlight-blue-key">road</span></h3>
-                    <h4>Travel in comfort</h4>
+                    <h3>Get on the <span class="highlight-blue-key">road</span>
+                        <br>
+                        <span class="line-height-gap-h3"></span>
+                        Travel in comfort
+                    </h3>
                     <p class="story-text-paragraph">Our products provide comfort, protection and more. We hold each item to a high standard, and ensure a robust quality. This way you get to move about in the world without worry. <br><br> Get out there, and explore.</p>
                 </div>
 
