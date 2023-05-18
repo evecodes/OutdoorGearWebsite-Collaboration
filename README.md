@@ -58,3 +58,5 @@
  Update 24 - More Carousel CSS/JSS added.
 
  Update 25 - Structure of the CSS adjusted for certain page sections. Added new svgs.
+
+ Update 26 - Adjustments fonts, padding, and margin.

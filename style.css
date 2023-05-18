@@ -8,15 +8,16 @@
     --secondary-color-80percent: hsla(0, 0%, 100%, 0.8);
     --tertiary-color-80percent: hsla(187, 100%, 20%, 0.75);
     --main-font: 'Montserrat', sans-serif;
-    --font-size-title: clamp(2rem, 6vw, 3rem);
-    --font-size-title-secondary: clamp(1.4rem, 6vw, 2.6rem);
+    --font-size-title: clamp(1.5rem, 5vw, 3rem);
+    --font-size-title-secondary: clamp(1.3rem, 4vw, 2.6rem);
+    --font-size-title-secondary-mobile: clamp(1.3rem, 4vw, 2.2rem);
     /* --lineheight-title-secondary: clamp(2rem, 4vw, 5rem); */
     --font-size-title-product: 1.5rem;    
     --font-size-main: 1rem;    
     --font-size-main-medium: 1.2rem;
     --font-size-main-large: clamp(1rem, 3vw, 1.3rem);
     --font-size-general-small: 0.75rem;  
-    --font-size-product: clamp(1rem, 4vw, 1.3rem);
+    --font-size-product: clamp(0.875rem, 3vw, 1.2rem);
     --font-style-normal: normal;
     --font-weight-400: 400;
     --font-weight-500: 500;
@@ -31,9 +32,8 @@
     --padding-medium: 1.25rem;
     --padding-mobile: 1rem;
     --icon-size-desktop: 1.5rem;
-    --icon-size-mobile: 1.8rem;
+    --icon-size-mobile: 1.65rem;
     /*bg-color class usable/unusable see html nav or TBR*/
-    /*margin-bottom 3rem within sections seperate*/
 }
 
 * {
@@ -111,6 +111,10 @@ P {
 
 .margin-bottom-3rem {
     margin-bottom: 3rem;
+}
+
+.margin-top-3rem {
+    margin-top: 3rem;
 }
 
 .white-bg {
@@ -398,6 +402,7 @@ input[type="search" i]::-webkit-searchfield-decoration {
 /*change all grid names*/
 .grid-homepage {
     height: 70vh;
+    min-height: 25rem;
     display: flex;
     justify-content: flex-start;
     align-items: center;    
@@ -457,7 +462,7 @@ input[type="search" i]::-webkit-searchfield-decoration {
 .highlight-black-curve {
     background-color: var(--main-color);
     border-radius: 3.5rem 0 0 0;
-    padding: 0.5rem 0.5rem 0.5rem 1.3rem;
+    padding: 0.5rem 0.75rem 0.5rem 1.3rem;
 }
 
 .btn-interactive-element {
@@ -490,10 +495,10 @@ input[type="search" i]::-webkit-searchfield-decoration {
     font-size: var(--font-size-title-product);
     font-family: var(--main-font);
     font-style: var(--font-style-normal);
-    font-weight: var(--font-weight-800);
+    font-weight: var(--font-weight-700);
     text-align: center;
     margin-top: 3rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .product-box {
@@ -602,7 +607,7 @@ input[type="search" i]::-webkit-searchfield-decoration {
 .story-text {
     display: inline-block;
     padding-right: var(--padding-medium);
-    padding-bottom: 3rem;
+    /* padding-bottom: 3rem; */
 }
 
 .story-text > h3 {
@@ -610,9 +615,8 @@ input[type="search" i]::-webkit-searchfield-decoration {
     color: var(--main-color);
     font-family: var(--main-font);
     font-style: var(--font-style-normal);
-    font-weight: var(--font-weight-800);
-    margin-bottom: 1rem;
-    /* white-space: nowrap; TBU?*/
+    font-weight: var(--font-weight-700);
+    margin-bottom: 1rem;    
 }
 
 .story-text-paragraph {
@@ -652,7 +656,7 @@ input[type="search" i]::-webkit-searchfield-decoration {
 .line-height-gap-h3 {
     display: block;
     width: 100%;
-    height: 1rem;
+    height: 0.75rem;
 }
 
 
@@ -681,10 +685,6 @@ footer {
 @media screen and (max-width: 78.5em){
     .icon-small {
         height: var(--icon-size-mobile);
-    }
-    
-    .company-icon-small {
-        height: 1.75rem;
     }
 
     .padding-left-right {
@@ -775,18 +775,16 @@ footer {
         padding-right: 4rem;
         padding-bottom: clamp(0.75rem, 4vh, 1.5rem);
         padding-left: 3rem;
-        /* padding: 1.5rem 4rem 1.5rem 3rem;*/
-        /* transition: transform 500ms ease-out; */
-        /* ^^^ animated link hover*/
         width: 100%;
     }  
 
-    .nav-link:hover {
-        display: table;
-        /* transform: translateX(0.5rem); */
-        /* ^^^ animated link hover*/
-        color: black;
-        background-color: white;
+    /*Hover device query*/
+    @media (hover: hover) {
+        .nav-link:hover {
+            display: table;
+            color: var(--main-color);
+            background-color: var(--secondary-color);
+        }
     }
 
     .mobile-menu-account {
@@ -829,15 +827,39 @@ footer {
     }   
     
     /*Story*/
+    .story-text > h3 {
+        font-size: var(--font-size-title-secondary-mobile);
+        white-space: nowrap;
+    }
+
     .story-text-paragraph {
         font-size: var(--font-size-main);
     }
 }
 
 @media screen and (max-width: 46em){
+    /*Home*/
+    .highlight-black-curve {        
+        border-radius: 3.5rem 0 0 0;
+        padding: 0.5rem 0.75rem 0.3rem 1rem;
+    }
+
+    .button-action-shop {
+        font-size: 1rem;
+        padding: 0.875rem 2rem 0.875rem 2rem;
+    }
+
     /*Products*/
+    .title-product {
+        font-size: 1.3rem;
+    }
+    
     .grid-product-carousel {        
         grid-auto-columns: 50%;
+    }
+
+    .grid-product > img {
+        max-height: 10rem;        
     }
 
     .dot-screen-small {
@@ -854,13 +876,20 @@ footer {
         padding: 0 var(--padding-medium) 3rem var(--padding-medium);
     }
 
+    .story-text > h3 {
+        font-size: 1.3rem;
+    }
+
     .story-img {
         border-radius: 0;
     }
 }
 
-/*desktop height small to add*/
-@media screen and (max-height: 27em) and (max-width: 78.5em) and (orientation: landscape){
+@media screen and (max-height: 25em) and (max-width: 78.5em) and (orientation: landscape){
+    /* ^^^ >>>sooner or if needed at all<<< */
+    /*desktop height small to add ?*/
+
+
     /*Nav*/
     .mobile-menu-text {
         margin: 0;
@@ -961,6 +990,15 @@ footer {
         text-align: center;
     }
 
+    .home-img-properties {    
+        height: 150%;
+        width: 150%;
+        object-position: top center;
+        /* height: 220%;
+        width: 170%; */
+        object-fit: cover;
+    }
+
     .padding-left {
         padding-left: 0;
     }
@@ -985,15 +1023,15 @@ footer {
         text-align: center;
         margin: 0 var(--padding-mobile) 3rem var(--padding-mobile);
         padding: 0;        
-    }   
+    }
+    
+    .story-text-paragraph {
+        font-size: 0.875rem;
+    }
 
     .line-height-gap-h3 {
         display: block;
         width: 100%;
         height: 0.5rem;
-    }
-    
-    /* .story-text-paragraph {
-        padding-top: 1rem;        
-    } */
+    }    
 }
