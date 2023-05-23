@@ -407,7 +407,7 @@ input[type="search" i]::-webkit-searchfield-decoration {
 /*Home*/
 
 /*change all grid names*/
-.grid-homepage {
+.box-homepage {
     height: 70vh;
     min-height: 25rem;
     display: flex;
@@ -415,11 +415,11 @@ input[type="search" i]::-webkit-searchfield-decoration {
     align-items: center;    
 }
 
-.grid-title-home {    
+.main-title-home {    
     z-index: 10;
 }
 
-.grid-img-home {    
+.main-img-home {    
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -429,7 +429,7 @@ input[type="search" i]::-webkit-searchfield-decoration {
     position: relative;
 }
 
-.grid-overlay-dark {
+.overlay-dark {
     position: absolute;    
     inset: 0;    
     background-color: var(--main-color);
@@ -456,7 +456,7 @@ input[type="search" i]::-webkit-searchfield-decoration {
     object-fit: cover;
 }
 
-.grid-title-home > h1, .grid-title-home > h2 {
+.main-title-home > h1, .main-title-home > h2 {
     font-size: var(--font-size-title);
     color: var(--secondary-color);
     font-family: var(--main-font);
@@ -978,11 +978,11 @@ footer {
     }      
 
     /*Home*/
-    .grid-title-home {
+    .main-title-home {
         justify-items: center;        
     }
 
-    .grid-homepage {
+    .box-homepage {
         padding-left: var(--padding-mobile);
         padding-right: var(--padding-mobile);
         text-align: center;
