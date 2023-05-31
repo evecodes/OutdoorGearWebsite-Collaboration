@@ -60,3 +60,5 @@
  Update 25 - Structure of the CSS adjusted for certain page sections. Added new svgs.
 
  Update 26 - Adjustments fonts, padding, and margin.
+
+ Update 27 - Carousel query update.

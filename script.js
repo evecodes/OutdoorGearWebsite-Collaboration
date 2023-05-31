@@ -19,6 +19,9 @@ BtnMenuClose.addEventListener('click', e=> {
 const mediaQueryDesktop = window.matchMedia('(min-width: 1256px)');
 const mediaQueryMedium = window.matchMedia('(min-width: 736px) and (max-width: 1255.99px)');
 const mediaQueryMobile = window.matchMedia('(max-width: 735.99px)');
+const mediaQueryGridItemsDesktop = window.matchMedia('(min-width: 1088.5px)');
+const mediaQueryGridItemsMedium = window.matchMedia('(min-width: 608.5px) and (max-width: 1088px)');
+const mediaQueryGridItemsMobile = window.matchMedia('(max-width: 608px)');
 
 
 // Mobile menu closes when changing to desktop size //
@@ -199,40 +202,40 @@ window.addEventListener('resize', e=> {
 
 
 //MQ carousel desktop//
-function carouselDesktop(mediaQueryDesktop) {
-    if (mediaQueryDesktop.matches) {
-        singleProducts = 3               
+function carouselDesktop(mediaQueryGridItemsDesktop) {
+    if (mediaQueryGridItemsDesktop.matches) {
+        singleProducts = 3           
     } else {  
         return;
     }
 };
 
-carouselDesktop(mediaQueryDesktop);
-mediaQueryDesktop.addEventListener('change', carouselDesktop);
+carouselDesktop(mediaQueryGridItemsDesktop);
+mediaQueryGridItemsDesktop.addEventListener('change', carouselDesktop);
 
 //MQ carousel medium//
-function carouselMedium(mediaQueryMedium) {
-    if (mediaQueryMedium.matches) {        
+function carouselMedium(mediaQueryGridItemsMedium) {
+    if (mediaQueryGridItemsMedium.matches) {        
         singleProducts = 4
     } else {
         return;
     }
 };
 
-carouselMedium(mediaQueryMedium);
-mediaQueryMedium.addEventListener('change', carouselMedium);
+carouselMedium(mediaQueryGridItemsMedium);
+mediaQueryGridItemsMedium.addEventListener('change', carouselMedium);
 
 //MQ carousel mobile//
-function carouselMobile(mediaQueryMobile) {
-    if (mediaQueryMobile.matches) {
+function carouselMobile(mediaQueryGridItemsMobile) {
+    if (mediaQueryGridItemsMobile.matches) {
         singleProducts = 6
     } else {
         return;
     }
 };
 
-carouselMobile(mediaQueryMobile);
-mediaQueryMobile.addEventListener('change', carouselMobile);
+carouselMobile(mediaQueryGridItemsMobile);
+mediaQueryGridItemsMobile.addEventListener('change', carouselMobile);
 
 
 // Intersection Observer - navigation changes on scroll //
